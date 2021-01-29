@@ -190,10 +190,19 @@ class TradingViewWidget extends WP_Widget
         
         ?>
         <!-- PC横並び -->
-        <div id="toggle-button" onclick="toggle()">チャートを閉じる</div>
         <div id="chart-container">
+
+            <!-- タブエリア BEGIN -->
+            <div id="tab-menu">
+                <span class="tab-trigger is-active" data-id="chart01"><?php echo explode(':', $tradingview_dataset[0]['symbol'])[1]; ?></span>
+                <span class="tab-trigger" data-id="chart02"><?php echo explode(':', $tradingview_dataset[1]['symbol'])[1]; ?></span>
+                <span class="tab-trigger" data-id="chart03"><?php echo explode(':', $tradingview_dataset[2]['symbol'])[1]; ?></span>
+                <span class="tab-trigger" data-id="chart04"><?php echo explode(':', $tradingview_dataset[3]['symbol'])[1]; ?></span>
+            </div>
+            <!-- タブエリア END -->
+            <!-- チャートエリア BEGIN -->
             <div id="chart-area">
-                <div id="first-chart">
+                <div id="chart01" class="tab-target chart__item is-active">
                     <div id="<?php echo $tradingview_dataset[0]['container_id']; ?>"></div>
                     <div class="tradingview-widget-copyright">
                         TradingView提供の
@@ -202,14 +211,14 @@ class TradingViewWidget extends WP_Widget
                         </a>
                     </div>
                 </div>
-                <div id="second-chart">
+                <div id="chart02" class="tab-target chart__item">
                     <div id="<?php echo $tradingview_dataset[1]['container_id']; ?>"></div>
                     <div class="tradingview-widget-copyright">TradingView提供の
                         <a href="https://jp.tradingview.com/symbols/EURUSD/?exchange=FX" rel="noopener" target="_blank">
                             <span class="blue-text">EURUSDチャート</span></a>
                     </div>
                 </div>
-                <div id="third-chart">
+                <div id="chart03" class="tab-target chart__item">
                     <div id="<?php echo $tradingview_dataset[2]['container_id']; ?>"></div>
                     <div class="tradingview-widget-copyright">
                         TradingView提供の
@@ -217,7 +226,7 @@ class TradingViewWidget extends WP_Widget
                             <span class="blue-text">GBPUSDチャート</span></a>
                     </div>
                 </div>
-                <div id="fourth-chart">
+                <div id="chart04" class="tab-target chart__item">
                     <div id="<?php echo $tradingview_dataset[3]['container_id']; ?>">
                     </div>
                     <div class="tradingview-widget-copyright">
@@ -227,7 +236,9 @@ class TradingViewWidget extends WP_Widget
                     </div>
                 </div>
             </div>
-
+        </div>
+        <div id="toggle-container">
+            <span id="toggle-button" onclick="toggle()">チャートを閉じる</span>
         </div>
 
 <?php

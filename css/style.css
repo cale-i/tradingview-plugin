@@ -3,49 +3,118 @@
 ------------------------------------------------------ */
 /* PC,モバイルの横並び設定 */
 
-#chart-area {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-#toggle-button {
-  user-select: none;
-  background-color: skyblue;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 10px;
-  
-}
-
-.none {
+.is-show {
   display: none;
 }
 
-
-
+/* レスポンシブ */
 /* モバイル */
 @media (max-width: 767px) {
+  #toggle-container {
+    text-align: center;
+  }
+  #toggle-button {
+    padding: 0.5rem;
+    background: lightgray;
+    text-align: center;
+    display: inline-block;
+    font-weight: bold;
+    user-select: none;
+  }
+
   #chart-area {
+    display: block;
+  }
+  .chart__item {
+    display: none;
+  }
+
+  /* タブメニュー */
+  #tab-menu {
+    display: flex;
+  }
+  .tab-trigger {
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    background-color: lightgray;
+    position: relative;
+    margin: 2px;
+    font-weight: bold;
+    user-select: none;
+  }
+  .tab-trigger.is-active {
+    background-color: lightseagreen;
+  }
+
+
+  /* タブコンテンツ */
+  .chart__item.is-active {
     display: block;
   }
 }
 
 /* タブレット */
 /* @media (min-width: 768px) and (max-width: 1029px) {} */
-/* デスクトップ */
+/* PC */
 /* @media (min-width: 1030px) {} */
 
-/* タブレット & デスクトップ */
+/* タブレット & PC */
 @media (min-width: 768px)  {
   #chart-area {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
-  #toggle-button {
+  /* #toggle-button {
     user-select: none;
-    background-color: skyblue;
+    background-color: gray;
     text-align: center;
     font-weight: bold;
+  } */
+  #toggle-container {
+    text-align: center;
+    padding: 10px;
+  }
+  #toggle-button {
+    border: 2px solid #000;
+    border-radius: 0;
+    background: #fff;
+    text-align: center;
+    display: block;
+    font-weight: bold;
+    user-select: none;
+    position: relative;
+
+  
+    -webkit-transform-style: preserve-3d;
+  
+    transform-style: preserve-3d;
+  }
+  
+  #toggle-button:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    width: 5px;
+    height: 100%;
+  
+    content: '';
+    -webkit-transition: all .3s;
+    transition: all .3s;
+  
+    background: #000;
+  }
+  
+  #toggle-button:hover {
+    color: #fff;
+    background: #000;
+  }
+  
+  #toggle-button:hover:before {
+    background: #fff;
   }
   
 }
