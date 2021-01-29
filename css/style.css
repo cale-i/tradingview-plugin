@@ -29,6 +29,7 @@
   /* タブメニュー */
   #tab-menu {
     display: flex;
+    justify-content: center;
   }
   .tab-trigger {
     text-align: center;
