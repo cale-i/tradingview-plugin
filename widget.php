@@ -101,94 +101,97 @@ class TradingViewWidget extends WP_Widget
                 "popup_height" => "650",
             ],
         ];
-        add_action('the_title', function ($content) {
-            $dataset = [
-                'home_url' => home_url(),
-                'nonce' => wp_create_nonce('hogehoge'),
-                'tradingview_dataset' => [
-                    [
-                        'container_id' => 'tradingview_' . '10000',
-                        'width' => 300,
-                        'height' => 400,
-                        'symbol' => 'FX:USDJPY',
-                        'interval' => 'D',
-                        'timezone' => 'Asia/Tokyo',
-                        'theme' => 'light',
-                        'style' => '1',
-                        'locale' => 'ja',
-                        "toolbar_bg" => "#f1f3f6",
-                        "enable_publishing" => false,
-                        "hide_legend" => true,
-                        "allow_symbol_change" => true,
-                        "show_popup_button" => true,
-                        "popup_width" => "1000",
-                        "popup_height" => "650",
+        if (is_front_page() && is_home()) {
+
+            add_action('the_title', function ($content) {
+                $dataset = [
+                    'home_url' => home_url(),
+                    'nonce' => wp_create_nonce('hogehoge'),
+                    'tradingview_dataset' => [
+                        [
+                            'container_id' => 'tradingview_' . '10000',
+                            'width' => 300,
+                            'height' => 400,
+                            'symbol' => 'FX:USDJPY',
+                            'interval' => 'D',
+                            'timezone' => 'Asia/Tokyo',
+                            'theme' => 'light',
+                            'style' => '1',
+                            'locale' => 'ja',
+                            "toolbar_bg" => "#f1f3f6",
+                            "enable_publishing" => false,
+                            "hide_legend" => true,
+                            "allow_symbol_change" => true,
+                            "show_popup_button" => true,
+                            "popup_width" => "1000",
+                            "popup_height" => "650",
+                        ],
+                        [
+                            'container_id' => 'tradingview_' . '20000',
+                            'width' => 300,
+                            'height' => 400,
+                            'symbol' => 'FX:EURUSD',
+                            'interval' => 'D',
+                            'timezone' => 'Asia/Tokyo',
+                            'theme' => 'light',
+                            'style' => '1',
+                            'locale' => 'ja',
+                            "toolbar_bg" => "#f1f3f6",
+                            "enable_publishing" => false,
+                            "hide_legend" => true,
+                            "allow_symbol_change" => true,
+                            "show_popup_button" => true,
+                            "popup_width" => "1000",
+                            "popup_height" => "650",
+                        ],
+                        [
+                            'container_id' => 'tradingview_' . '30000',
+                            'width' => 300,
+                            'height' => 400,
+                            'symbol' => 'FX:GBPUSD',
+                            'interval' => 'D',
+                            'timezone' => 'Asia/Tokyo',
+                            'theme' => 'light',
+                            'style' => '1',
+                            'locale' => 'ja',
+                            "toolbar_bg" => "#f1f3f6",
+                            "enable_publishing" => false,
+                            "hide_legend" => true,
+                            "allow_symbol_change" => true,
+                            "show_popup_button" => true,
+                            "popup_width" => "1000",
+                            "popup_height" => "650",
+                        ],
+                        [
+                            'container_id' => 'tradingview_' . '40000',
+                            'width' => 300,
+                            'height' => 400,
+                            'symbol' => 'FX_IDC:XAUUSD',
+                            'interval' => 'D',
+                            'timezone' => 'Asia/Tokyo',
+                            'theme' => 'light',
+                            'style' => '1',
+                            'locale' => 'ja',
+                            "toolbar_bg" => "#f1f3f6",
+                            "enable_publishing" => false,
+                            "hide_legend" => true,
+                            "allow_symbol_change" => true,
+                            "show_popup_button" => true,
+                            "popup_width" => "1000",
+                            "popup_height" => "650",
+                        ],
                     ],
-                    [
-                        'container_id' => 'tradingview_' . '20000',
-                        'width' => 300,
-                        'height' => 400,
-                        'symbol' => 'FX:EURUSD',
-                        'interval' => 'D',
-                        'timezone' => 'Asia/Tokyo',
-                        'theme' => 'light',
-                        'style' => '1',
-                        'locale' => 'ja',
-                        "toolbar_bg" => "#f1f3f6",
-                        "enable_publishing" => false,
-                        "hide_legend" => true,
-                        "allow_symbol_change" => true,
-                        "show_popup_button" => true,
-                        "popup_width" => "1000",
-                        "popup_height" => "650",
-                    ],
-                    [
-                        'container_id' => 'tradingview_' . '30000',
-                        'width' => 300,
-                        'height' => 400,
-                        'symbol' => 'FX:GBPUSD',
-                        'interval' => 'D',
-                        'timezone' => 'Asia/Tokyo',
-                        'theme' => 'light',
-                        'style' => '1',
-                        'locale' => 'ja',
-                        "toolbar_bg" => "#f1f3f6",
-                        "enable_publishing" => false,
-                        "hide_legend" => true,
-                        "allow_symbol_change" => true,
-                        "show_popup_button" => true,
-                        "popup_width" => "1000",
-                        "popup_height" => "650",
-                    ],
-                    [
-                        'container_id' => 'tradingview_' . '40000',
-                        'width' => 300,
-                        'height' => 400,
-                        'symbol' => 'FX_IDC:XAUUSD',
-                        'interval' => 'D',
-                        'timezone' => 'Asia/Tokyo',
-                        'theme' => 'light',
-                        'style' => '1',
-                        'locale' => 'ja',
-                        "toolbar_bg" => "#f1f3f6",
-                        "enable_publishing" => false,
-                        "hide_legend" => true,
-                        "allow_symbol_change" => true,
-                        "show_popup_button" => true,
-                        "popup_width" => "1000",
-                        "popup_height" => "650",
-                    ],
-                ],
-                // 'tradingview_id' => 'tradingview_' . (string)rand(10000, 99999),
-            ];
-            wp_enqueue_script('tradingview_cdn_script', 'https://s3.tradingview.com/tv.js');
-            wp_enqueue_script('tradingview', plugin_dir_url(__FILE__) . '/js/script.js');
-            wp_localize_script('tradingview', 'dataset', $dataset);
-            // wp_localize_script('tradingview', 'dataset', $dataset);
-        });
-        
-        
+                    // 'tradingview_id' => 'tradingview_' . (string)rand(10000, 99999),
+                ];
+                wp_enqueue_script('tradingview_cdn_script', 'https://s3.tradingview.com/tv.js');
+                wp_enqueue_script('tradingview', plugin_dir_url(__FILE__) . '/js/script.js');
+                wp_localize_script('tradingview', 'dataset', $dataset);
+                // wp_localize_script('tradingview', 'dataset', $dataset);
+            });
+        }
         ?>
+        
+        <?php if (is_front_page() && is_home()) : ?>
         <!-- PC横並び -->
         <div id="chart-container">
 
@@ -240,6 +243,7 @@ class TradingViewWidget extends WP_Widget
         <div id="toggle-container">
             <span id="toggle-button" onclick="toggle()">チャートを閉じる</span>
         </div>
+        <?php endif; ?>
 
 <?php
     }
