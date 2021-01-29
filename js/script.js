@@ -6,7 +6,6 @@ const {
     tradingview_dataset,
 } = dataset;
 
-console.log(dataset)
 
 // tradingview_dataset.map((e) => {
 
@@ -66,28 +65,23 @@ tradingview_dataset.map((e) => {
 // タブメニュー設定
 if (window.matchMedia("(min-width: 768px)").matches) {
     // タブレット & PC
-    console.log('PC');
     // タブエリア削除
     const el = document.getElementById('tab-menu');
     el.remove();
 
 } else {
     // モバイル
-    console.log('mobile')
 
     // タブエリア作成
     document.addEventListener('DOMContentLoaded', () => {
         const tabTriggers = document.querySelectorAll('.tab-trigger');
         const tabTargets = document.querySelectorAll('.tab-target');
-        console.log(tabTriggers)
-        console.log(tabTargets)
 
         for (let i = 0; i < tabTriggers.length; i++) {
             // タブメニュークリック時
             tabTriggers[i].addEventListener('click', (e) => {
                 // クリックされた要素を取得
                 let currentMenu = e.currentTarget;
-                console.log('currentMenu')
                 // ターゲット要素(タブメニューdata属性値==ターゲットid)を取得
                 let currentContent = document.getElementById(currentMenu.dataset.id);
 
