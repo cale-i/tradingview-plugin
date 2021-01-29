@@ -3,7 +3,7 @@
 Plugin Name: TradingView-Plugin
 Plugin URI: ""
 Description: TradingView提供のチャートを表示させるためのプラグイン。
-Version: 1.0
+Version: 1.1.0
 Author: "わたなべ"
 Author URI: ""
 License: GPL2
